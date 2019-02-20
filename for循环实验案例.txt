@@ -1,0 +1,29 @@
+for循环实验案例：
+
+1、创建100个目录
+2、将系统中已有文件xxx.txt复制1000份
+3、将文件以1-10保存到第一个目录中，11-20保存到第二个目录中的形式将所有文件处理完。
+
+#!/bin/bash
+
+#创建测试文件
+echo "for test file" > /tmp/test.txt
+cd /tmp
+for i in {1..1000}
+do
+	cp test.txt $i.txt
+done
+
+
+for j in {1..100}
+do
+	mkdir /test/dir$j -p
+	start=$(echo "($j-1)*10+1"|bc)
+	end=$(echo "$j*10"|bc)
+	#for ((n=$start;n<=$end;n++))
+	for n in $(seq $start $end)
+	do
+		cp /tmp/$n.txt /test/dir$j/$n.txt
+	done
+done
+

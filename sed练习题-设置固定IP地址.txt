@@ -1,0 +1,9 @@
+sed练习题-设置固定IP地址
+
+1、通过read提示用户输入IP地址、子网掩码、网关、DNS等参数并配置变量
+2、首先判断网卡配置文件中设置方式（dhcp|static|none）
+3、如果网卡配置方式为static|none、通过sed修改IPADDR/NETMASK/GATEWAY/DNS1配置项的值。
+4、如果网卡配置方式为dhcp，通过sed追加IPADDR/NETMASK/GATEWAY/DNS1配置项及值。
+5、重启网络服务确保配置生效。
+
+注意：判断可以if或者case，参数提取，修改，追加都用sed。
